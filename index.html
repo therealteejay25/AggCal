@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AggCal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="flash.png" type="image/x-icon">
+</head>
+<body>
+    <div class="logo">
+        <img src="flash.png" height="35" alt="">
+    </div>
+    <div class="container">
+        <h3>Enter the required info to calculate your aggregate.</h3>
+        <div>
+            <!-- O'level Subject Inputs (kept same as before) -->
+            <div class="inp">
+                <label for="subone">O'level Subject 1</label>
+                <select name="subone" id="subone">
+                    <option value="80">A1</option>
+                    <option value="72">B2</option>
+                    <option value="67">B3</option>
+                    <option value="62">C4</option>
+                    <option value="57">C5</option>
+                    <option value="52">C6</option>              
+                </select>
+            </div>
+            <div class="inp">
+                <label for="subtwo">O'level Subject 2</label>
+                <select name="subtwo" id="subtwo">
+                    <option value="80">A1</option>
+                    <option value="72">B2</option>
+                    <option value="67">B3</option>
+                    <option value="62">C4</option>
+                    <option value="57">C5</option>
+                    <option value="52">C6</option>              
+                </select>
+            </div>
+            <div class="inp">
+                <label for="subthree">O'level Subject 3</label>
+                <select name="subthree" id="subthree">
+                    <option value="80">A1</option>
+                    <option value="72">B2</option>
+                    <option value="67">B3</option>
+                    <option value="62">C4</option>
+                    <option value="57">C5</option>
+                    <option value="52">C6</option>              
+                </select>
+            </div>
+            <div class="inp">
+                <label for="subfour">O'level Subject 4</label>
+                <select name="subfour" id="subfour">
+                    <option value="80">A1</option>
+                    <option value="72">B2</option>
+                    <option value="67">B3</option>
+                    <option value="62">C4</option>
+                    <option value="57">C5</option>
+                    <option value="52">C6</option>              
+                </select>
+            </div>
+            <div class="inp">
+                <label for="subfive">O'level Subject 5</label>
+                <select name="subfive" id="subfive">
+                    <option value="80">A1</option>
+                    <option value="72">B2</option>
+                    <option value="67">B3</option>
+                    <option value="62">C4</option>
+                    <option value="57">C5</option>
+                    <option value="52">C6</option>              
+                </select>
+            </div>
+
+            <div class="inp">
+                <label for="jamb">UTME Score</label>
+                <input type="number" id="jamb" placeholder="ex. 367" maxlength="3" min="0" max="400">
+                <p id="error" class="error"></p>
+            </div>
+        </div>
+        <div class="btn">
+            <button onclick="calculateAggregate()">Calculate Aggregate</button>
+        </div>
+
+        <!-- Pop-up Modal for result -->
+        <div id="resultModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h2 id="resultText"></h2>
+            </div>
+        </div>
+
+    <script>
+        function calculateAggregate() {
+            let jambScore = document.getElementById("jamb").value;
+
+            // Error handling for empty input or out-of-bounds input
+            if (!jambScore) {
+                document.getElementById('error').innerText = "Please enter your JAMB score.";
+                return;
+            }
+            jambScore = parseInt(jambScore);
+            if (isNaN(jambScore) || jambScore > 400 || jambScore < 0) {
+                document.getElementById('error').innerText = "Please enter a valid JAMB score (0-400).";
+                return;
+            }
+
+            document.getElementById('error').innerText = "";  // Clear any previous error messages
+
+            // Get selected WAEC grades
+            let waecGrades = [
+                parseInt(document.getElementById("subone").value),
+                parseInt(document.getElementById("subtwo").value),
+                parseInt(document.getElementById("subthree").value),
+                parseInt(document.getElementById("subfour").value),
+                parseInt(document.getElementById("subfive").value)
+            ];
+
+            // Calculate WAEC average
+            let waecSum = waecGrades.reduce((a, b) => a + b, 0);
+            let waecAverage = waecSum / 5;
+            let waecScore = (waecAverage / 100) * 25;
+
+            // Calculate JAMB contribution
+            let jambContribution = (jambScore / 400) * 75;
+
+            // Calculate final aggregate score
+            let finalAggregate = waecScore + jambContribution;
+
+            // Display result in the pop-up modal
+            document.getElementById('resultText').innerHTML = `Your screening result is ${finalAggregate.toFixed(2)}.`;
+            document.getElementById('resultModal').style.display = 'block';
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById('resultModal').style.display = 'none';
+        }
+
+        // Limit the JAMB input to 3 digits and max value 400
+        document.getElementById("jamb").addEventListener("input", function() {
+            if (this.value.length > 3) {
+                this.value = this.value.slice(0, 3);
+            }
+            if (this.value > 400) {
+                this.value = 400;
+            }
+        });
+    </script>
+</body>
+</html>
