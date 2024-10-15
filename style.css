@@ -9,7 +9,7 @@
     font-family: 'Gabarito', sans-serif;
 }
 body{
-    background: #EBDFFF;
+    background: #f7f1ff;
 }
 .logo{
     padding: 10px;
@@ -17,6 +17,7 @@ body{
 .container{
     width: 20rem;
     margin: 0 auto;
+    padding: 3rem 0;
 }
 .container h3{
     text-align: center;
@@ -55,7 +56,9 @@ body{
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    width: inherit;
+    width: 20rem;
+    font-size: 18px;
+    transform: translateX(-35px);
 }
 
 /* Modal (popup) styling */
@@ -68,12 +71,13 @@ body{
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5); /* Transparent background */
+    backdrop-filter: blur;
 }
 
 .modal-content {
     background-color: #fff;
     margin: 15% auto;
-    padding: 20px;
+    padding: 3rem;
     border: 1px solid #3907EE;
     width: 80%;
     max-width: 300px;
@@ -98,4 +102,34 @@ body{
 
 h2 {
     color: #3907EE;
+}
+.tmd{
+    background: #3907EE;
+    text-align: center;
+    color: white;
+    padding: 1rem;
+}
+.foot{
+    background: #3907EE;
+    text-align: center;
+    color: white;
+    padding: 1rem;
+}
+.mt{
+    padding: 15px;
+    font-size: 16px;
+}
+.mb{
+    outline: none;
+    border: none;
+    background: #3907EE;
+    color: white;
+    padding: 10px 20px;
+    font-size: 17px;
+    border-radius: 7px;
+}
+.mb a{
+    text-decoration: none;
+    color: white;
+    font-size: 17px;
 }

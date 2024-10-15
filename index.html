@@ -8,15 +8,18 @@
     <link rel="shortcut icon" href="flash.png" type="image/x-icon">
 </head>
 <body>
-    <div class="logo">
-        <img src="flash.png" height="35" alt="">
+    <div class="tmd">
+        <h3>PROUDLY BROUGHT TO YOU BY TMD
+            <br>
+            07044628459.
+        </h3>
     </div>
     <div class="container">
         <h3>Enter the required info to calculate your aggregate.</h3>
         <div>
             <!-- O'level Subject Inputs (kept same as before) -->
             <div class="inp">
-                <label for="subone">O'level Subject 1</label>
+                <label for="subone">Maths</label>
                 <select name="subone" id="subone">
                     <option value="80">A1</option>
                     <option value="72">B2</option>
@@ -27,7 +30,7 @@
                 </select>
             </div>
             <div class="inp">
-                <label for="subtwo">O'level Subject 2</label>
+                <label for="subtwo">English</label>
                 <select name="subtwo" id="subtwo">
                     <option value="80">A1</option>
                     <option value="72">B2</option>
@@ -86,9 +89,20 @@
             <div class="modal-content">
                 <span class="close" onclick="closeModal()">&times;</span>
                 <h2 id="resultText"></h2>
+                <div>
+                    <h5 class="mt">Join our Whatsapp group for more updates and educational tools.</h5>
+                    <div>
+                        <button class="mb"><a href="https://chat.whatsapp.com/EYmWVir8wHhITzI3V4VOKo" target="_blank">Join Us</a></button>
+                    </div>
+                </div>
             </div>
         </div>
-
+        </div>
+        <footer class="foot">
+            Developed by Tee Jay and Lhawhalhe.
+            <br>
+            This web app was not paid but is for educational purposes only.
+        </footer>
     <script>
         function calculateAggregate() {
             let jambScore = document.getElementById("jamb").value;
