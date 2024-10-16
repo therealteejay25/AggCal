@@ -17,7 +17,6 @@ body{
 .container{
     width: 20rem;
     margin: 0 auto;
-    padding: 3rem 0;
 }
 .container h3{
     text-align: center;
@@ -58,7 +57,6 @@ body{
     cursor: pointer;
     width: 20rem;
     font-size: 18px;
-    transform: translateX(-35px);
 }
 
 /* Modal (popup) styling */
@@ -143,4 +141,8 @@ h2 {
 }
 .flex{
     display: flex;
+}
+.h3{
+    text-align: center;
+    padding: 1rem;
 }
