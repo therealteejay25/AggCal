@@ -77,7 +77,7 @@ body{
 .modal-content {
     background-color: #fff;
     margin: 15% auto;
-    padding: 3rem;
+    padding: 2rem;
     border: 1px solid #3907EE;
     width: 80%;
     max-width: 300px;
@@ -107,7 +107,7 @@ h2 {
     background: #3907EE;
     text-align: center;
     color: white;
-    padding: 1rem;
+    padding: 0.5rem;
 }
 .foot{
     background: #3907EE;
@@ -127,9 +127,20 @@ h2 {
     padding: 10px 20px;
     font-size: 17px;
     border-radius: 7px;
+    margin: 0.4rem;
 }
 .mb a{
     text-decoration: none;
     color: white;
     font-size: 17px;
+}
+.tmd1{
+    font-size: 32px;
+}.ini{
+    color: #3907EE;
+    font-weight: 900;
+    padding: 25px 0;
+}
+.flex{
+    display: flex;
 }
